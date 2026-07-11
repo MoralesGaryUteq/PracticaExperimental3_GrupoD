@@ -1,0 +1,253 @@
+<mxfile host="app.diagrams.net" agent="Codex" compressed="false">
+  <diagram id="er---crow&#39;s-foot-3fn" name="ER - Crow&#39;s Foot 3FN">
+    <mxGraphModel dx="4660" dy="2987" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="1900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="e_usuario" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;USUARIO&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK idUsuario : BIGINT NOT NULL&lt;br&gt;nombres : VARCHAR(80) NOT NULL&lt;br&gt;apellidos : VARCHAR(80) NOT NULL&lt;br&gt;correo : VARCHAR(160) UNIQUE NOT NULL&lt;br&gt;contrasena : VARCHAR(255) NOT NULL&lt;br&gt;fotoPerfil : VARCHAR(255) NULL&lt;br&gt;estadoVerificacion : BOOLEAN NOT NULL" vertex="1">
+          <mxGeometry height="210" width="260" x="530" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="e_admin" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;ADMINISTRADOR&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK/FK idUsuario : BIGINT NOT NULL&lt;br&gt;nivelAcceso : VARCHAR(30) NOT NULL" vertex="1">
+          <mxGeometry height="85" width="240" x="120" y="722.5" as="geometry" />
+        </mxCell>
+        <mxCell id="e_prop" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;PROPIETARIO&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div&gt;PK/FK idUsuario : BIGINT NOT NULL&lt;/div&gt;tipoCuenta: VARCHAR (20) NOT NULL" vertex="1">
+          <mxGeometry height="90" width="230" x="600" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mensaje" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;MENSAJE&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK idMensaje : BIGINT NOT NULL&lt;br&gt;FK idUsuarioEmisor: BIGINT NOT NULL&lt;br&gt;FK idUsuarioReceptor: BIGINT NOT NULL&lt;br&gt;contenido : VARCHAR (255) NOT NULL&lt;br&gt;fechaEnvio : DATE NOT NULL" vertex="1">
+          <mxGeometry height="130" width="250" x="950" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="e_solicitud" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;SOLICITUD&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK idSolicitud : BIGINT NOT NULL&lt;br&gt;FK idUsuarioSolicitante : BIGINT&lt;br&gt;FK idMascota : BIGINT NOT NULL&lt;div&gt;FK idMascotaOrigen : BIGINT NULL&lt;/div&gt;&lt;div&gt;tipoSolicitud : VARCHAR(20) NOT NULL&lt;/div&gt;fechaSolicitud : DATETIME NOT NULL&lt;br&gt;estadoSolicitud : VARCHAR(20) NOT NULL" vertex="1">
+          <mxGeometry height="155" width="280" x="860" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mascota" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;MASCOTA&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK idMascota : BIGINT NOT NULL&lt;br&gt;FK idPropietario : BIGINT NOT NULL&lt;br&gt;nombre : VARCHAR(80) NOT NULL&lt;br&gt;especie : VARCHAR(50) NOT NULL&lt;br&gt;raza : VARCHAR(80) NOT NULL&lt;br&gt;&lt;div&gt;sexo : VARCHAR(1) NOT NULL&lt;/div&gt;fechaNacimiento : DATE NOT NULL&lt;br&gt;color : VARCHAR(60) NULL&lt;br&gt;estadoReproductivo : VARCHAR(30) NOT NULL&lt;br&gt;estadoDisponibilidad : VARCHAR(30) NOT NULL" vertex="1">
+          <mxGeometry height="250" width="300" x="1230" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="e_publicacion" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;PUBLICACION&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK idPublicacion : BIGINT NOT NULL&lt;br&gt;FK idUsuario : BIGINT NOT NULL&lt;br&gt;FK idMascota : BIGINT NOT NULL&lt;br&gt;tipoPublicacion : VARCHAR(20) NOT NULL&lt;br&gt;fechaPublicacion : DATETIME NOT NULL&lt;br&gt;estado : VARCHAR(20) NOT NULL" vertex="1">
+          <mxGeometry height="155" width="250" x="940" y="1155" as="geometry" />
+        </mxCell>
+        <mxCell id="e_evalcomp" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;EVALUACION_COMPATIBILIDAD&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div&gt;PK idEvaluacion : BIGINT NOT NULL&lt;/div&gt;FK idMascotaOrigen : BIGINT NOT NULL&lt;br&gt;FK idMascotaDestino : BIGINT NOT NULL&lt;br&gt;porcentajeCompatibilidad : DECIMAL(5,2) NOT NULL&lt;br&gt;recomendacion : VARCHAR(255) NOT NULL&lt;br&gt;fechaEvaluacion: DATETIME NOT NULL" vertex="1">
+          <mxGeometry height="160" width="300" x="1740" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="e_historial" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;HISTORIAL_MEDICO&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK idHistorial : BIGINT NOT NULL&lt;br&gt;FK idVeterinario : BIGINT NOT NULL&lt;br&gt;alergias : VARCHAR(150)&amp;nbsp; NULL&lt;br&gt;enfermedades : VARCHAR(150) NULL&lt;br&gt;cirugias : VARCHAR(150) NULL&lt;br&gt;tratamientos : VARCHAR(150) NULL" vertex="1">
+          <mxGeometry height="165" width="230" x="1310" y="165" as="geometry" />
+        </mxCell>
+        <mxCell id="e_vacuna" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;VACUNA&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK idVacuna : BIGINT NOT NULL&lt;div&gt;FK idHistorial : BIGINT NOT NULL&lt;/div&gt;&lt;div&gt;nombreVacuna : VARCHAR(100) NOT NULL&lt;/div&gt;fechaAplicacion : DATETIME NOT NULL&lt;br&gt;fechaProximaDosis : DATE NULL" vertex="1">
+          <mxGeometry height="140" width="260" x="1630" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="e_doc" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;DOCUMENTO_VETERINARIO&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div&gt;PK idDocumento : BIGINT NOT NULL&lt;/div&gt;&lt;div&gt;FK idVeterinario: BIGINT NOT NULL&lt;/div&gt;FK idHistorial : BIGINT NOT NULL&lt;br&gt;tipoDocumento : VARCHAR(50) NOT NULL&lt;br&gt;&lt;div&gt;fechaCarga : DATETIME NOT NULL&lt;/div&gt;&lt;div&gt;estadoValidacion : VARCHAR(20) NOT NULL&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="265" x="800" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="er_admin" edge="1" parent="1" source="e_usuario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERmandOne;endFill=0;strokeColor=#000000;" target="e_admin" value="es un">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="760" />
+              <mxPoint x="440" y="760" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_prop" edge="1" parent="1" source="e_usuario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToOne;endFill=0;strokeColor=#000000;" target="e_prop" value="es un">
+          <mxGeometry relative="1" x="0.0039" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="710" y="930" />
+              <mxPoint x="710" y="930" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_vet" edge="1" parent="1" source="e_usuario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERmandOne;endFill=0;strokeColor=#000000;" target="e_vet" value="es un">
+          <mxGeometry relative="1" x="-0.0012" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_msg_r" edge="1" parent="1" source="e_usuario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=1.008;exitY=0.049;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#000000;" value="usuario emisor">
+          <mxGeometry relative="1" x="0.0916" y="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="810" y="670" />
+            </Array>
+            <mxPoint x="810" y="671" as="sourcePoint" />
+            <mxPoint x="950" y="671" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_msg_d" edge="1" parent="1" source="e_usuario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;" target="e_mensaje" value="usuario receptor">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="720" />
+              <mxPoint x="860" y="720" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_sol_user" edge="1" parent="1" source="e_usuario" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;" target="e_solicitud" value="envia">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="960" y="850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_sol_pet" edge="1" parent="1" source="e_mascota" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;" target="e_solicitud" value="destino">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="850" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_hist" edge="1" parent="1" source="e_mascota" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;" target="e_historial" value="registra">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1590" y="700" />
+              <mxPoint x="1590" y="290" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_vac" edge="1" parent="1" source="e_historial" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;" target="e_vacuna" value="incluye">
+          <mxGeometry relative="1" x="-0.1553" y="-2" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1750" y="248" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_doc_hist" edge="1" parent="1" source="e_doc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;entryX=0;entryY=0.697;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#000000;" target="e_historial" value="adjunta evidencia">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1130" y="280" />
+              <mxPoint x="1130" y="280" />
+            </Array>
+            <mxPoint x="1810" y="518.75" as="sourcePoint" />
+            <mxPoint x="1810" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_doc_vet" edge="1" parent="1" source="e_vet" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERzeroToOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;" target="e_doc" value="valida">
+          <mxGeometry relative="1" x="-0.3636" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="660" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_eval_vet" edge="1" parent="1" source="e_vet" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;" target="e_evalvet" value="realiza">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="485" />
+              <mxPoint x="1000" y="485" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_cmp_1" edge="1" parent="1" source="e_mascota" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;" target="e_evalcomp" value="mascota origen">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1680" y="780" />
+              <mxPoint x="1680" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="er_cmp_2" edge="1" parent="1" source="e_mascota" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;" target="e_evalcomp" value="mascota destino">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1670" y="830" />
+              <mxPoint x="1670" y="830" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_evalvet" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;EVALUACION_VETERINARIA&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK idEvaluacionVet : BIGINT NOT NULL&lt;br&gt;FK idVeterinario : BIGINT NOT NULL&lt;br&gt;FK idMascota : BIGINT NOT NULL&lt;br&gt;diagnostico : VARCHAR(255) NOT NULL&lt;br&gt;aptitudCruza : BOOLEAN NOT NULL&lt;br&gt;aptitudAdopcion : BOOLEAN NOT NULL&lt;br&gt;fechaEvaluacion : DATETIME NOT NULL" vertex="1">
+          <mxGeometry height="170" width="260" x="1250" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="e_vet" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&#39;text-align:center;font-size:14px&#39;&gt;&lt;b&gt;VETERINARIO&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK/FK idUsuario : BIGINT&lt;br&gt;numeroLicencia : VARCHAR(50) UNIQUE NOT NULL" vertex="1">
+          <mxGeometry height="100" width="310" x="505" y="445" as="geometry" />
+        </mxCell>
+        <mxCell id="UVc0ZXMlz2tEMwCSAsCI-7" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;exitX=0.176;exitY=0.999;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=#000000;" target="e_publicacion" value="&lt;div&gt;es publicada en&lt;/div&gt;">
+          <mxGeometry relative="1" x="0.3279" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="576" y="1220" />
+            </Array>
+            <mxPoint x="575.7599999999998" y="870" as="sourcePoint" />
+            <mxPoint x="940" y="1228.21" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UVc0ZXMlz2tEMwCSAsCI-8" edge="1" parent="1" source="e_mascota" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;" target="e_evalvet" value="es evaluada en">
+          <mxGeometry relative="1" x="0.0899" y="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points" />
+            <mxPoint x="1210" y="560" as="sourcePoint" />
+            <mxPoint x="1368" y="561" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IQ4ViqPe5ENZQ6qhetcT-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;fillColor=default;strokeColor=#000000;strokeWidth=2;fontSize=12;spacing=8;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;FOTOGRAFIA&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;PK idFoto : BIGINT NOT NULL&lt;br&gt;FK idMascota : BIGINT NOT NULL&lt;br&gt;urlImagen: VARCHAR(255) NOT NULL&lt;br&gt;pesoKb: INT NOT NULL&lt;br&gt;&lt;div&gt;revisaIA : BOOLEAN NOT NULL DEFAULT FALSE&lt;/div&gt;&lt;div&gt;motivoRechazo: VARCHAR(150) NULL&lt;/div&gt;" vertex="1">
+          <mxGeometry height="155" width="310" x="1390" y="1155" as="geometry" />
+        </mxCell>
+        <mxCell id="IQ4ViqPe5ENZQ6qhetcT-2" edge="1" parent="1" source="IQ4ViqPe5ENZQ6qhetcT-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERoneToMany;startFill=0;endArrow=ERmandOne;endFill=0;strokeColor=#000000;fillColor=#FEFEFE;exitX=0.322;exitY=-0.003;exitDx=0;exitDy=0;exitPerimeter=0;" value="adjunta">
+          <mxGeometry relative="1" x="-0.1972" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1490" y="1140" />
+              <mxPoint x="1490" y="1140" />
+            </Array>
+            <mxPoint x="1490" y="1150" as="sourcePoint" />
+            <mxPoint x="1490" y="920" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IQ4ViqPe5ENZQ6qhetcT-3" edge="1" parent="1" source="e_publicacion" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERzeroToMany;startFill=0;endArrow=ERzeroToOne;endFill=0;strokeColor=#000000;fillColor=#FEFEFE;entryX=0.367;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;" target="e_mascota" value="se publica en">
+          <mxGeometry relative="1" x="-0.0397" y="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1340" y="1232" />
+              <mxPoint x="1340" y="921" />
+            </Array>
+            <mxPoint x="1381" y="1148" as="sourcePoint" />
+            <mxPoint x="1380" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IQ4ViqPe5ENZQ6qhetcT-9" edge="1" parent="1" source="e_mascota" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERzeroToMany;startFill=0;endArrow=ERmandOne;endFill=0;strokeColor=#000000;fillColor=#FEFEFE;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="e_prop" value="posee">
+          <mxGeometry relative="1" x="0.2774" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1299" y="1110" />
+              <mxPoint x="715" y="1110" />
+            </Array>
+            <mxPoint x="1299" y="1140" as="sourcePoint" />
+            <mxPoint x="1130" y="1244" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IQ4ViqPe5ENZQ6qhetcT-10" parent="1" style="shape=note;size=20;whiteSpace=wrap;html=1;align=left;" value="&lt;div align=&quot;left&quot;&gt;Especializacion {disjoint, incomplete}: un Usuario pertenece a un unico subtipo (Administrador, propietario o&amp;nbsp;Veterinario).&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="210" x="340" y="1055" as="geometry" />
+        </mxCell>
+        <mxCell id="IQ4ViqPe5ENZQ6qhetcT-13" edge="1" parent="1" source="IQ4ViqPe5ENZQ6qhetcT-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.077;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=8 8;endArrow=none;endFill=0;strokeWidth=2;" target="e_usuario">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="1055" />
+              <mxPoint x="440" y="1000" />
+              <mxPoint x="550" y="1000" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IQ4ViqPe5ENZQ6qhetcT-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;fillColor=default;strokeColor=#000000;strokeWidth=2;fontSize=12;spacing=8;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;ANTECEDENTE GENETICO&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div&gt;&lt;span&gt;PK idAntecedente : BIGINT NOT NULL&amp;nbsp;&lt;/span&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;FK idMascota : BIGINT NOT NULL&amp;nbsp;&lt;/span&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;linaje : VARCHAR(50) NULL&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;enfermedadesHereditarias : VARCHAR(50) NULL&lt;br&gt;&lt;/span&gt;&lt;span&gt;gradoParentesco : VARCHAR(50) NULL&lt;br&gt;&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="155" width="280" x="1750" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="IQ4ViqPe5ENZQ6qhetcT-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;overflow=hidden;strokeWidth=2;fontSize=12;spacing=8;strokeColor=#000000;" value="&lt;div style=&quot;text-align:center;font-size:14px&quot;&gt;&lt;b&gt;CONFIGURACION PRIVACIDAD&lt;/b&gt;&lt;/div&gt;&lt;hr&gt;&lt;div&gt;&lt;span&gt;PK idConfiguracion : BIGINT NOT NULL&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;FK idUsuario : BIGINT&amp;nbsp;&lt;/span&gt;&lt;span&gt;NOT NULL&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;campo : VARCHAR(50) NOT NULL&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;visibilidad : VARCHAR(20) NOT NULL&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="240" x="120" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="IQ4ViqPe5ENZQ6qhetcT-16" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;strokeColor=#000000;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="IQ4ViqPe5ENZQ6qhetcT-15" value="configura">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="240" y="850" />
+            </Array>
+            <mxPoint x="530" y="850" as="sourcePoint" />
+            <mxPoint x="370" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IQ4ViqPe5ENZQ6qhetcT-17" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeWidth=2;startArrow=ERzeroToOne;startFill=0;endArrow=ERmandOne;endFill=0;strokeColor=#000000;exitX=1.006;exitY=0.893;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.179;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="IQ4ViqPe5ENZQ6qhetcT-14" value="tiene antecedentes">
+          <mxGeometry relative="1" x="-0.0003" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="1800" y="900" />
+            </Array>
+            <mxPoint x="1530.0000000000002" y="900" as="sourcePoint" />
+            <mxPoint x="1828.2" y="946.75" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
